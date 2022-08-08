@@ -1,17 +1,17 @@
 <template>
-  <div class="text-red-50 p-0 bg-black">
+  <div class="text-zinc-50 p-0 bg-black">
     <!-- header video -->
     <div class="w-full relative z-10">
       <!-- video and picture -->
       <transition-group name="fade">
         <div
-          class="bg-[url('./assets/img/landscape/img1.jpg')] bg-left bg-cover w-full object-cover aspect-[20/9] bg-fixed"
+          class="bg-[url('./assets/img/landscape/img1.jpg')] md:bg-left bg-cover w-full object-cover aspect-[20/10] md:aspect-[20/9] md:bg-fixed"
           v-show="!playing"
         ></div>
         <video
           src="../assets/videos/vid5.mp4"
           ref="video"
-          class="bg-cover w-full object-cover aspect-[20/9] bg-fixed"
+          class="bg-cover w-full object-cover aspect-[20/10] md:aspect-[20/9] bg-fixed"
           muted="true"
           v-show="playing"
         ></video>
@@ -19,12 +19,12 @@
 
       <!-- writeup -->
       <div
-        class="h-full w-full absolute pl-4 top-0 bg-gradient-to-b from-black/0 grid grid-cols-4 items-center to-black"
+        class="h-full w-full absolute pl-4 top-0 bg-gradient-to-b from-black/25 to-black/25 md:from-black/0 md:to-black grid grid-cols-4 items-center"
       >
-        <div class="flex flex-col">
-          <h1 class="text-5xl">Stranded</h1>
+        <div class="flex flex-col col-span-3 md:col-span-1">
+          <h1 class="text-4xl md:5xl">Stranded</h1>
 
-          <div class="flex mb-2 mt-4">
+          <div class="hidden md:flex mb-2 mt-4">
             <button
               class="text-xs bg-black/50 pr-4 pl-2 py-1 rounded-sm flex capitalize"
             >
@@ -38,20 +38,43 @@
               <div>my list</div>
             </button>
           </div>
-          <article class="text-xs text-red-50/60">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            adipisci ratione, ipsam qui quo labore maxime.
+          <article
+            class="text-xs mt-3 font-semibold text-zinc-50/90 md:text-50/70"
+          >
+            This is only a netflix look-alike and is not in any way related to
+            the company Netflix. also do well to check out my
+            <a
+              href="https://spotofy.netlify.app"
+              target="_blank"
+              class="underline"
+              >spotify</a
+            >
+            look alike
           </article>
+          <div class="flex md:hidden mt-2">
+            <button
+              class="text-xs bg-black/50 pr-4 pl-2 py-1 rounded-sm flex capitalize"
+            >
+              <play-icon class="h-4 mr-1"></play-icon>
+              <div>play</div>
+            </button>
+            <button
+              class="text-xs bg-black/50 pr-4 pl-2 py-1 ml-2 rounded-sm flex capitalize"
+            >
+              <PlusSmIcon class="h-4 mr-1"></PlusSmIcon>
+              <div>my list</div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
     <!--movies section -->
-    <div class="p-4 -mt-32 pb-0 z-50 relative">
+    <div class="p-4 pt-0 md:-mt-28 pb-0 z-50 relative">
       <div v-for="title in titles">
         <!-- header -->
         <header class="flex justify-between items-baseline mt-6 mb-4">
-          <h1 class="font-bold text-2xl">{{ title }}</h1>
+          <h1 class="font-semibold text-2xl">{{ title }}</h1>
         </header>
 
         <!-- cards -->
@@ -74,7 +97,7 @@
           </swiper-slide>
         </swiper>
       </div>
-      <footer class="text-center text-xs sm:mt-10 py-2 text-zinc-600">
+      <footer class="text-center text-xs md:mt-10 py-2 text-zinc-600">
         &copy;{{ year }} Notflix inc.
       </footer>
     </div>
@@ -117,22 +140,14 @@ watchEffect(() => {
 const spv = ref();
 const screenwidth = screen.width;
 const calcspv = () => {
-  console.log(screen.width);
   if (screenwidth < 640) {
     spv.value = 3;
-    console.log(3);
   } else if (screenwidth > 1024) {
     spv.value = 8;
-    console.log(8);
   } else if (screenwidth > 768) {
     spv.value = 7;
-    console.log(7);
   } else if (screenwidth > 640) {
     spv.value = 5;
-    console.log(5);
-  } else {
-    spv.value = 10;
-    console.log(10);
   }
 };
 calcspv();
