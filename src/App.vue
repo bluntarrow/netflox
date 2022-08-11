@@ -1,16 +1,11 @@
 <script setup>
-import LeftNav from './components/app/LeftNav.vue';
+import { useStore } from "vuex";
+
+const store = useStore();
+const start = () => store.commit("startup");
+start();
 </script>
 
 <template>
-  <Suspense>
-    <template #default>
-        <RouterView></RouterView>
-    </template>
-    <template #fallback>
-      <div class="w-[100vw] h-[100vh] bg-red-500">
-
-      </div>
-    </template>
-  </Suspense>
+  <RouterView></RouterView>
 </template>
