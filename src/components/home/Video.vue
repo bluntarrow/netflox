@@ -65,11 +65,11 @@ import{PlusSmIcon, PlayIcon} from '@heroicons/vue/outline';
 const video = ref(null);
 const playing = ref(false);
 const autoplay = () => {
-  // playing.value = true;
-  // video.value.play();
-  // video.value.addEventListener("ended", () => {
-  //   playing.value = false;
-  // });
+  playing.value = true;
+  video.value.play();
+  video.value.addEventListener("ended", () => {
+    playing.value = false;
+  });
 };
 
 watchEffect(() => {
