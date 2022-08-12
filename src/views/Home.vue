@@ -9,14 +9,13 @@
       <Slides></Slides>
       
       <footer class="text-center text-xs md:mt-10 py-2 text-zinc-600">
-        &copy;{{ year }} Notflix inc.
+        &copy;{{ year }} Notflox inc.
       </footer>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
 import Slides from "../components/home/Slides.vue";
 import PreviewVideo from "../components/home/Video.vue";
 

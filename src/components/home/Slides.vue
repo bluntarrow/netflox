@@ -38,7 +38,7 @@ let movies = computed(() => store.state.movies);
 const setIsOpen = (a) => {
   store.commit("setIsOpen", a);
 };
-const titles = ["Only on Notflix", "Watch Again", "Thrillers & Horror"];
+const titles = ["Only on Notflox", "Watch Again", "Thrillers & Horror"];
 //swiper
 const spv = ref();
 const screenwidth = screen.width;
