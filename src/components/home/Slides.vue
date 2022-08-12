@@ -10,6 +10,7 @@
       <swiper-slide
         class="bg-zinc-700/25 shadow-sm relative"
         v-for="movie in movies"
+        @click="setIsOpen(true)"
       >
         <img
           v-lazy="movie.img"
@@ -17,7 +18,7 @@
           alt=""
         />
         <h1
-          class="text-zinc-100 text-center w-full font-bold cursor-pointer absolute top-3/4"
+          class="text-zinc-100 text-center w-full font-bold cursor-default absolute top-3/4"
           style="text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7)"
         >
           {{ movie.title }}
@@ -34,8 +35,10 @@ import "swiper/css";
 
 const store = useStore();
 let movies = computed(() => store.state.movies);
+const setIsOpen = (a) => {
+  store.commit("setIsOpen", a);
+};
 const titles = ["Only on Notflix", "Watch Again", "Thrillers & Horror"];
-
 //swiper
 const spv = ref();
 const screenwidth = screen.width;

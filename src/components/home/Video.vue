@@ -1,6 +1,5 @@
 <template>
   <!-- video and picture -->
-  <transition-group name="fade">
     <div
       class="bg-[url('./assets/img/landscape/img1.jpg')] md:bg-left bg-cover w-full object-cover aspect-[20/10] md:aspect-[20/9] md:bg-fixed"
       v-show="!playing"
@@ -12,7 +11,6 @@
       muted="true"
       v-show="playing"
     ></video>
-  </transition-group>
 
   <!-- writeup -->
   <div

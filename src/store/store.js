@@ -1,25 +1,45 @@
-import { createStore } from "vuex";
+import {
+  createStore
+} from "vuex";
 
 const store = createStore({
   state() {
     return {
-      movies: [
-        { to: "/", title: "Stranded" },
+      movies: [{
+          to: "/",
+          title: "Stranded"
+        },
         {
           to: "/",
           title: "Space Cadet",
         },
-        { to: "/", title: "Reboot" },
-        { to: "/", title: "Delima" },
+        {
+          to: "/",
+          title: "Reboot"
+        },
+        {
+          to: "/",
+          title: "Delima"
+        },
         {
           to: "/",
           title: "The Butch",
         },
-        { to: "/", title: "Broken" },
-        { to: "/", title: "Overwatch" },
-        { to: "/", title: "Box Boy" },
+        {
+          to: "/",
+          title: "Broken"
+        },
+        {
+          to: "/",
+          title: "Overwatch"
+        },
+        {
+          to: "/",
+          title: "Box Boy"
+        },
       ],
-      activemovies: null,
+      activemovie: null,
+      isOpen: false,
     };
   },
   getters: {},
@@ -40,21 +60,10 @@ const store = createStore({
         );
       }
     },
-    next(state) {
-      if (state.songindex < state.currentsongs.length - 1) {
-        state.songindex++;
-        state.activesong = state.currentsongs[state.songindex];
-      }
-    },
-    prev(state) {
-      if (state.songindex > 0) {
-        state.songindex--;
-        state.activesong = state.currentsongs[state.songindex];
-      }
-    },
-    fetchsongs(state, id) {
-      state.currentsongs = state.songs.filter((song) => song.artist === id);
-    },
+    setIsOpen(state, a) {
+      state.isOpen = a;
+      console.log(a)
+    }
   },
 });
 
