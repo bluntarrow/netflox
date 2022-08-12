@@ -9,7 +9,7 @@
         @click="$emit('closedDialog')"
       ></XIcon>
         <div
-          class="bg-[url('./assets/img/landscape/img1.jpg')] bg-contain bg-bottom w-full object-cover aspect-[20/10] md:aspect-[20/9] md:bg-fixed"
+          class="bg-[url('./assets/img/landscape/img1.jpg')] bg-cover  md:bg-contain md:bg-bottom w-full object-cover aspect-[20/10] md:aspect-[20/9] md:bg-fixed"
         ></div>
       <div
         class="h-full w-full absolute pl-4 top-0 bg-gradient-to-b from-black/25 to-black/25 md:from-black/0 md:to-black grid justify-center items-center"
@@ -20,7 +20,7 @@
 
     <!-- series title and details -->
     <DialogTitle
-      class="-mt-10 px-10 z-10 relative text-2xl font-bold text-slate-50"
+      class="md:-mt-10 mt-4 px-10 z-10 relative text-2xl font-bold text-slate-50"
       >Stranded</DialogTitle
     >
     <DialogDescription class="flex px-10 items-center gap-4 text-sm relative">
@@ -63,11 +63,11 @@
         <option class="outline-none">Season 1</option>
       </select>
 
-      <div class="grid grid-cols-2 gap-2 mt-4">
-        <div class="flex flex-col gap-2 p-1 hover:bg-slate-50/5" v-for="i in 6">
+      <div class="grid md:grid-cols-2 gap-2 mt-4">
+        <div class="flex md:flex-col flex-wrap gap-2 p-1 md:hover:bg-slate-50/5" v-for="i in 6">
           <img
             src="../../assets/img/landscape/img1.jpg"
-            class="aspect-[2/1] bg-cover object-cover cursor-pointer"
+            class="aspect-[5/3] md:aspect-[2/1] bg-cover w-1/3 md:w-full object-cover cursor-pointer"
             alt=""
           />
           <article class="text-sm pb-4 cursor-default">
@@ -75,9 +75,12 @@
               >{{ i }}. Lorem ipsum dolor</span
             >
             <br />
-            sit amet consectetur, adipisicing elit. t commodi voluptatum ipsum
-            voluptatem molestias ratione.
+            <span class="hidden md:block">sit amet consectetur, adipisicing elit. t commodi voluptatum ipsum
+            voluptatem molestias ratione.</span>
+            
           </article>
+          <div class="md:hidden w-[100%]">sit amet consectetur, adipisicing elit. t commodi voluptatum ipsum
+            voluptatem molestias ratione.</div>
         </div>
       </div>
     </div>
